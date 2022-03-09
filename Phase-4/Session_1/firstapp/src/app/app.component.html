@@ -1,0 +1,24 @@
+<h1>HELLO WORLD</h1>
+<app-header></app-header>
+<app-footer></app-footer>
+<h1>Interpolation</h1>
+<hr>
+<h3>Welcome {{fname}}  {{lname}}</h3>
+<h1>Property binding - with attributes</h1>
+<a [href]="url" target="_blank">Click Here</a><br>
+<img [src]="imgurl" [height]="h"[width]="w">
+<h1>Event Binding</h1>
+<button (click)="showMe()">Show me</button>
+<div *ngIf="flag">{{message}}</div>
+<h1>Array Display</h1>
+<table class="table table-striped table-bordered">
+    <thead><tr><th>Name</th><th>Price</th><th>Availability</th><th>Rating</th></tr></thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td  [style.color]="flag?'red':'blue'" >{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td [class.inStock]="true">{{p.available}}</td>
+            <td [style.color]="p.rating>4?'green':'red'" >{{p.rating}}</td>
+        </tr>
+    </tbody>
+</table>

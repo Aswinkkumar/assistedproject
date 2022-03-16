@@ -1,0 +1,43 @@
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-img-top2 {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 220px;
+}
+.para1{
+    font-size: 20px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.astro{
+
+    width: 376px;
+    height: 350px;
+
+}
+
+.computer{
+
+    width: 376px;
+    height: 349px;
+}
+
+.dance{
+
+    width: 376px;
+    height: 348px;
+}
+
+.caption{
+    font-size: 30px;
+}
+
+.contact{
+    height: 379px;
+}

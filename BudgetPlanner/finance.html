@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Finance page</title>
+    <style>
+        th,
+        td,
+        p,
+        input {
+            font: 14px Verdana;
+        }
+
+        table,
+        th,
+        td {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+    <script src="finance.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body onload="CreateTableFromJSON()">
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Deal Id</th>
+                <th>client_name</th>
+                <th>project_name</th>
+                <th>project_manager</th>
+                <th>project_cost</th>
+            </tr>
+        </thead>
+        <tbody  class="update" id="body">
+           
+        </tbody>
+        
+    </table>
+    <input type="button" onclick="UpdateCost()" value="Update Cost" id ="project_cost"/>
+</body>
+</html>

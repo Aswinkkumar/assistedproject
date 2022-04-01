@@ -1,0 +1,77 @@
+create instance on AWS with ubuntu 20.01 OS
+
+
+-------------------------------------
+
+***************Docker installation on Ubuntu OS *********************
+
+> sudo apt-get update
+> sudo apt-get install ca-certificates curl gnupg lsb-release
+
+>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+> echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+***** Install Docker Engine ***************
+ > sudo apt-get update
+ > sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+********* let's check docker installed or not ****************
+
+> sudo docker -v or sudo docker --version
+> sudo docker info
+********************************************************************************************
+
+****** run image on docker swarm *******
+
+swarm means managing multiple conatiners running
+on multiple hosts
+
+------------------------------------
+2 node : 1 node is manager and another node is worker
+
+>docker swarm init
+(it wil make my node as manager node and give one command, if you execute that command on another instaance --> that instance will connect to your manager node as worker.)
+
+once swarm initialized check the running node
+
+>docker node ls
+
+Let's run the service on docker swarm
+
+>docker service create -p 80:80 --name webserver myimage
+
+>docker service ls (check running service)
+
+>curl localhost:80
+
+****** Scale the container with Docker swarm ***********
+
+>docker service scale webserver=3
+
+(this will scale your service with 3 services running)
+
+to check service running
+
+>docker service ls
+
+to check howmany same services running
+
+>docker service ps webserver
+
+(you will be able to see 3 running services)
+**************************************************************************************************
+
+Jenkin installation
+> curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+    
+> echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+    
+> sudo apt-get update
+    
+> sudo apt-get install jenkins
+
+*****start jenkins service*****
+    > sudo service jenkins start
+    *****to check jenkins service*****
+    > sudo service jenkins status
